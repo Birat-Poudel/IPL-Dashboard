@@ -1,18 +1,20 @@
 package com.biratpoudel.ipldashboard.controller;
 
+import com.biratpoudel.ipldashboard.model.Match;
 import com.biratpoudel.ipldashboard.model.Team;
 
 import com.biratpoudel.ipldashboard.repository.MatchRepository;
 import com.biratpoudel.ipldashboard.service.TeamService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @RequestMapping("/api/v1")
 @RestController
+@CrossOrigin
 public class TeamController {
 
     private final TeamService teamService;
@@ -37,4 +39,21 @@ public class TeamController {
     public String getTeams() {
         return "Hello";
     }
+
+    @GetMapping("/teams/{teamName}/matches")
+    public List<Match> getMatchesForTeam(@PathVariable String teamName, @RequestParam int year) {
+
+        LocalDate startDate = LocalDate.of(year,1,1);
+        LocalDate endDate = LocalDate.of(year + 1,1,1);
+
+//        return matchRepository.getByTeam1AndDateBetweenOrTeam2AndDateBetweenOrderByDateDesc(
+//                teamName, startDate, endDate,
+//                teamName, startDate, endDate
+//        );
+
+        return matchRepository.getMatchesByTeamBetweenDates(teamName, startDate, endDate);
+
+    }
+
+
 }
