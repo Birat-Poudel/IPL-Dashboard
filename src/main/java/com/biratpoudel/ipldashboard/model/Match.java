@@ -13,8 +13,9 @@ import java.time.LocalDate;
 @Entity
 @Table (name = "matches")
 public class Match {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String city;

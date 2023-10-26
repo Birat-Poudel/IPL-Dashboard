@@ -17,7 +17,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
-@Configuration
+//@Configuration
 public class BatchConfig {
 
     private final String[] FIELD_NAMES = new String[] { "city", "date", "player_of_match", "venue",
