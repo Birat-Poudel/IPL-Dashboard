@@ -20,8 +20,6 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
             @Param("dateEnd") LocalDate dateEnd
     );
 
-
-
 //    List<Match> getByTeam1AndDateBetweenOrTeam2AndDateBetweenOrderByDateDesc(
 //            String team1, LocalDate date1, LocalDate date2,
 //            String team2, LocalDate date3, LocalDate date4

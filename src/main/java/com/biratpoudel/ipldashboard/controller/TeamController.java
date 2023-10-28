@@ -2,9 +2,8 @@ package com.biratpoudel.ipldashboard.controller;
 
 import com.biratpoudel.ipldashboard.model.Match;
 import com.biratpoudel.ipldashboard.model.Team;
-
 import com.biratpoudel.ipldashboard.repository.MatchRepository;
-import com.biratpoudel.ipldashboard.repository.TeamRepository;
+import com.biratpoudel.ipldashboard.service.MatchService;
 import com.biratpoudel.ipldashboard.service.TeamService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -19,13 +18,12 @@ import java.util.List;
 public class TeamController {
 
     private final TeamService teamService;
-    private final MatchRepository matchRepository;
-    private final TeamRepository teamRepository;
+    private final MatchService matchService;
 
-    public TeamController(TeamService teamService, MatchRepository matchRepository, TeamRepository teamRepository) {
+
+    public TeamController(TeamService teamService, MatchService matchService) {
         this.teamService = teamService;
-        this.matchRepository = matchRepository;
-        this.teamRepository = teamRepository;
+        this.matchService = matchService;
     }
 
     @GetMapping("/teams/{teamName}")
@@ -34,14 +32,14 @@ public class TeamController {
         Pageable pageable = PageRequest.of(0,4);
 
         Team team = teamService.findByTeamName(teamName);
-        team.setMatches(matchRepository.getByTeam1OrTeam2OrderByDateDesc(teamName, teamName, pageable));
+        team.setMatches(matchService.getByTeam1OrTeam2OrderByDateDesc(teamName, teamName, pageable));
         return team;
     }
 
     @GetMapping("/teams")
     public Iterable<Team> getAllTeams()
     {
-        return teamRepository.findAll();
+        return teamService.findAll();
     }
 
     @GetMapping("/teams/{teamName}/matches")
@@ -55,8 +53,7 @@ public class TeamController {
 //                teamName, startDate, endDate
 //        );
 
-        return matchRepository.getMatchesByTeamBetweenDates(teamName, startDate, endDate);
-
+        return matchService.getMatchesByTeamBetweenDates(teamName, startDate, endDate);
     }
 
 
