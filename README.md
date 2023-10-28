@@ -35,4 +35,15 @@ Database consist of 2 tables :
 
 ### Second Phase : Implementing Business Logic, API endpoints & Security
 
+API endpoints:
+
+- List of teams : 
+http://localhost:8080/api/v1/teams
+
+- Single Team : 
+http://localhost:8080/api/v1/teams/{teamName}
+
+- All matches of a team in a particular year : 
+http://localhost:8080/api/v1/teams/{teamName}/matches?year={yearName}
+
 ### Third Phase : UI Pages such as HomePage, TeamPage, MatchPage
