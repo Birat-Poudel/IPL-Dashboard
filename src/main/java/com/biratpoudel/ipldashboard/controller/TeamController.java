@@ -4,6 +4,7 @@ import com.biratpoudel.ipldashboard.model.Match;
 import com.biratpoudel.ipldashboard.model.Team;
 
 import com.biratpoudel.ipldashboard.repository.MatchRepository;
+import com.biratpoudel.ipldashboard.repository.TeamRepository;
 import com.biratpoudel.ipldashboard.service.TeamService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -19,10 +20,12 @@ public class TeamController {
 
     private final TeamService teamService;
     private final MatchRepository matchRepository;
+    private final TeamRepository teamRepository;
 
-    public TeamController(TeamService teamService, MatchRepository matchRepository) {
+    public TeamController(TeamService teamService, MatchRepository matchRepository, TeamRepository teamRepository) {
         this.teamService = teamService;
         this.matchRepository = matchRepository;
+        this.teamRepository = teamRepository;
     }
 
     @GetMapping("/teams/{teamName}")
@@ -36,8 +39,9 @@ public class TeamController {
     }
 
     @GetMapping("/teams")
-    public String getTeams() {
-        return "Hello";
+    public Iterable<Team> getAllTeams()
+    {
+        return teamRepository.findAll();
     }
 
     @GetMapping("/teams/{teamName}/matches")
