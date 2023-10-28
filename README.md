@@ -47,3 +47,15 @@ http://localhost:8080/api/v1/teams/{teamName}
 http://localhost:8080/api/v1/teams/{teamName}/matches?year={yearName}
 
 ### Third Phase : UI Pages such as HomePage, TeamPage, MatchPage
+
+- **Home Page**
+
+![Home Page UI](/src/main/resources/HomePage.png)
+
+- **Team Page**
+
+![Team Page UI](/src/main/resources/TeamPage.png)
+
+- **Match Page**
+
+![Match Page UI](/src/main/resources/MatchPage.png)
