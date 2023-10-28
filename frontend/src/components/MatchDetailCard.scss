@@ -1,0 +1,43 @@
+.MatchDetailCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+    .match-date, .match-venue, .match-result {
+        margin-top: 10px;
+    }
+
+    .match-result{
+        margin-top: 20px;
+    }
+
+    .additional-details{
+        text-align: right;
+        & > p{
+            margin-bottom: 20px;
+        }
+
+        & > :nth-child(8){
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .MatchDetailCard{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+        .additional-details{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+    }
+}

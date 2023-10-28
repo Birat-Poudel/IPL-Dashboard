@@ -1,0 +1,50 @@
+.MatchPage{
+    display: grid;
+    grid-template-columns: 0.25fr 1fr 5fr;
+    grid-column-gap: 20px;
+}
+
+.year-selector{
+    justify-self: end;
+    padding: 20px;
+    margin-top: 30px;
+
+    h3{
+        text-align: right;
+    }
+}
+
+.page-heading{
+    margin: 50px auto;
+}
+
+.more-link2{
+    font-size: 3.5rem;
+    margin-top: 20px;
+
+    :hover{
+        text-decoration: none;
+        color: #8ad1e9;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .MatchPage{
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+
+        .page-heading{
+            font-size: 1.5rem;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+        .year-selector{
+            padding: 0;
+            h3{
+                text-align: left;
+            }
+        }
+    }
+}

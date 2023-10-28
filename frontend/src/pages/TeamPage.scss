@@ -1,0 +1,111 @@
+.TeamPage {
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 1fr 0.75fr 0.75fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.team-name-section {
+    grid-column: span 3;
+    justify-self: start;
+    align-self: end;
+}
+
+.team-name{
+    font-size: 3rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.win-loss-section{
+    justify-self: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.match-detail-section {
+    grid-column: span 4;
+}
+
+.more-link {
+    align-self: center;
+    justify-self: center;
+    font-size: 3.5rem;
+
+    :hover{
+        text-decoration: none;
+        color: #8ad1e9;
+        margin-left: 0.5rem;
+    }
+}
+
+.latest-matches{
+    margin-bottom: 10px;
+}
+
+.team-image-tag{
+    height: 125px;
+    width: 125px;
+    object-fit: cover;
+}
+
+.more-link1 {
+    // align-self: center;
+    // justify-self: center;
+    display: flex;
+    align-items: center;
+    font-size: 3.5rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    :hover{
+        text-decoration: none;
+        color: #8ad1e9;
+    }
+
+    ::after{
+        content: "Back to dashboard";
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .TeamPage{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .team-name-section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+
+            .team-name{
+                font-size: 1.5rem;
+            }
+        }
+
+        .win-loss-section{
+            height: 200px;
+            width: 200px;
+            padding: 20px;
+            margin-bottom: 2rem;
+
+            .win-loss-info{
+                display: block;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .match-detail-section{
+            .latest-matches{
+                margin-top: 2rem;
+            }
+        }
+
+
+    }
+}

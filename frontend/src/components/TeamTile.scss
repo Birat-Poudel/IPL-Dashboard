@@ -1,0 +1,17 @@
+.TeamTile{
+    display: flex;
+    align-items: center;
+    height: 170px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.team-tile-image{
+    display: block;
+    margin-right: 0.5rem;
+    height: 125px;
+    width: 125px;
+    object-fit: cover;
+    margin-top: 7px;
+}
